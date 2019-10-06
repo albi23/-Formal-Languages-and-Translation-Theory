@@ -1,8 +1,10 @@
-public  class Entry<V>{
+package Utils;
+
+public  class Pair<V>{
     private V value1;
     private V value2;
 
-    public Entry(V value1, V value2) {
+    public Pair(V value1, V value2) {
         this.value1 = value1;
         this.value2 = value2;
     }

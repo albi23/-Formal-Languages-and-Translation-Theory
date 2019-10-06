@@ -1,11 +1,18 @@
+package Algorithm;
+
+import Utils.Color;
+import Utils.Pair;
+import Utils.TextHeightLight;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class AlgorithmKnuthMorrisPratt implements TextHeightLight {
 
     private String pattern;
     private String text;
-    private List<Entry<Integer>> occurrences;
+    private List<Pair<Integer>> occurrences;
     private int[] KMPtab;
 
     public AlgorithmKnuthMorrisPratt(String pattern, String text) {
@@ -35,12 +42,12 @@ public class AlgorithmKnuthMorrisPratt implements TextHeightLight {
         for (int i = 0; i < text.length(); i++) {
             while ((indx > -1) && (this.pattern.charAt(indx) != this.text.charAt(i))) indx = this.KMPtab[indx];
             if (++indx == this.pattern.length()) {
-                occurrences.add(new Entry<>((i + 1) - pattern.length(), (i + 1)));
-                System.out.println(String.format("Match at position [%d, %d]", (i + 1) - pattern.length(), i + 1));
+                occurrences.add(new Pair<>((i + 1) - pattern.length(), (i + 1)));
+                System.out.println(String.format("Match at position [%d, %d)", (i + 1) - pattern.length(), i + 1));
                 indx = KMPtab[indx];
             }
         }
-        printWithHeightLight(this.pattern, this.text, occurrences);
+        printWithHeightLight(this.pattern, this.text, occurrences, Color.GREEN);
     }
 
 }
