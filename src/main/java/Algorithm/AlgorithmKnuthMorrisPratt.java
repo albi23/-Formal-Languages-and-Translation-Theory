@@ -14,6 +14,7 @@ public class AlgorithmKnuthMorrisPratt implements TextHeightLight {
     private String text;
     private List<Pair<Integer>> occurrences;
     private int[] KMPtab;
+    private List<Character> alphabet;
 
     public AlgorithmKnuthMorrisPratt(String pattern, String text) {
         this.pattern = pattern;
@@ -22,10 +23,17 @@ public class AlgorithmKnuthMorrisPratt implements TextHeightLight {
         KMPtab = new int[this.pattern.length() + 1];
     }
 
+    public AlgorithmKnuthMorrisPratt(String pattern, String text, List<Character> alphabet) {
+        this.pattern = pattern;
+        this.text = text;
+        this.alphabet = alphabet;
+        occurrences = new ArrayList<>();
+        KMPtab = new int[this.pattern.length() + 1];
+    }
+
     private void computePrefix() {
         int indx = -1;
         this.KMPtab[0] = indx;
-
         for (int i = 1; i <= this.pattern.length(); i++) {
             while (indx > -1 && (this.pattern.charAt(indx) != this.pattern.charAt(i - 1))) indx = this.KMPtab[indx];
             ++indx;
@@ -33,18 +41,27 @@ public class AlgorithmKnuthMorrisPratt implements TextHeightLight {
         }
     }
 
+    private boolean validatePattern(){
+        for (int i = 0; i < this.pattern.length() ; i++) {
+            if (!this.alphabet.contains(this.pattern.charAt(i))) return false;
+        }
+        return true;
+    }
+
 
     public void findPattern() {
 
-        this.computePrefix();
-        int indx = 0;
-        if (this.pattern.length() < 1) return;
-        for (int i = 0; i < text.length(); i++) {
-            while ((indx > -1) && (this.pattern.charAt(indx) != this.text.charAt(i))) indx = this.KMPtab[indx];
-            if (++indx == this.pattern.length()) {
-                occurrences.add(new Pair<>((i + 1) - pattern.length(), (i + 1)));
-                System.out.println(String.format("Match at position [%d, %d)", (i + 1) - pattern.length(), i + 1));
-                indx = KMPtab[indx];
+        if (this.validatePattern()) {
+            this.computePrefix();
+            int indx = 0;
+            if (this.pattern.length() < 1) return;
+            for (int i = 0; i < text.length(); i++) {
+                while ((indx > -1) && (this.pattern.charAt(indx) != this.text.charAt(i))) indx = this.KMPtab[indx];
+                if (++indx == this.pattern.length()) {
+                    occurrences.add(new Pair<>((i + 1) - pattern.length(), (i + 1)));
+                    System.out.println(String.format("Match at position [%d, %d)", (i + 1) - pattern.length(), i + 1));
+                    indx = KMPtab[indx];
+                }
             }
         }
         printWithHeightLight(this.pattern, this.text, occurrences, Color.GREEN);

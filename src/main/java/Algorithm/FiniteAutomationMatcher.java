@@ -34,21 +34,21 @@ public class FiniteAutomationMatcher implements TextHeightLight {
         this.alphabet = set.toArray(new Character[set.size()]);
     }
 
-    public void finiteAutomationMatcher(){
-         List<Pair<Integer>> occurrences = new ArrayList<>();
+    public void finiteAutomationMatcher() {
+        List<Pair<Integer>> occurrences = new ArrayList<>();
 
-         this.computeTransitionFunction();
-        int q =0;
-        for (int i = 0; i < text.length()-1; i++) {
+        this.computeTransitionFunction();
+        int q = 0;
+        for (int i = 0; i < text.length() - 1; i++) {
             q = states.get(q).get(text.charAt(i));
-            if (q == pattern.length()){
+            if (q == pattern.length()) {
                 System.out.println(String.format("Match at position [%d, %d)", (i + 1) - pattern.length(), i + 1));
                 occurrences.add(new Pair<>((i + 1) - pattern.length(), (i + 1)));
 
             }
         }
 
-        printWithHeightLight(pattern,text,occurrences, Color.BLUE);
+        printWithHeightLight(pattern, text, occurrences, Color.BLUE);
     }
 
     private void computeTransitionFunction(){

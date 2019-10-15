@@ -6,6 +6,10 @@ public interface TextHeightLight {
 
     default void printWithHeightLight(String pattern, String text,List<Pair<Integer>> occurrences, Color color){
         System.out.println("Pattern : \""+color.makeColor(Color.RED,pattern)+"\"");
+        if (occurrences.size() < 1) {
+            System.out.println("No occurrences");
+            return;
+        };
         int lastIndx = 0;
         StringBuilder sb = new StringBuilder();
         for (Pair<Integer> singleMark: occurrences) {
