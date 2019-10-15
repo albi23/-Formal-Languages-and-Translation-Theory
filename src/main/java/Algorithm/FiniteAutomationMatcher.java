@@ -39,7 +39,7 @@ public class FiniteAutomationMatcher implements TextHeightLight {
 
         this.computeTransitionFunction();
         int q = 0;
-        for (int i = 0; i < text.length() - 1; i++) {
+        for (int i = 0; i < text.length(); i++) {
             q = states.get(q).get(text.charAt(i));
             if (q == pattern.length()) {
                 System.out.println(String.format("Match at position [%d, %d)", (i + 1) - pattern.length(), i + 1));

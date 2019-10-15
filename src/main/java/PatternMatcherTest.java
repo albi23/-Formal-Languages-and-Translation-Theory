@@ -82,7 +82,7 @@ public class PatternMatcherTest {
         String[] testPattern5 = new String[]{"ろ","ろω","ωrωr","ρo","rr","rρrρ"};
         for (String testPattern : testPattern5) {
             new AlgorithmKnuthMorrisPratt(testPattern,testText5, Arrays.asList(alphabet5)).findPattern();
-//            new FiniteAutomationMatcher(testPattern,testText5,alphabet5);
+            new FiniteAutomationMatcher(testPattern,testText5,alphabet5);
             System.out.println("-----------------\n");
         }
 
