@@ -1,4 +1,4 @@
-Simple calculator write in Jflex and Bison (out in java)
+Simple reverse Polish notation calculator write in Jflex and Bison (out in java)
 
 To compile:
 run compileAll.sh
