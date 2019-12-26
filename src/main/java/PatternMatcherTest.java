@@ -40,40 +40,40 @@ public class PatternMatcherTest {
 //          System.out.println("-----------------\n");
 //        }
 
-//        /** Test patterns 2 **/
-//
-//        Character[] alphabet2 = new Character[]{'α','β','γ','δ'};
-//        String testText2 = "αβαβγβαβαβαβαβγ";
-//        String testPattern2[] = new String[]{"δ","γδ", "αβ", "αβαβ"};
-//        for (String testPattern : testPattern2) {
-////            new FiniteAutomationMatcher(testPattern,testText2,alphabet2);
-//            new AlgorithmKnuthMorrisPratt(testPattern,testText2, Arrays.asList(alphabet2)).findPattern();
-//
-//            System.out.println("-----------------\n");
-//        }
-//
-//        /** Test patterns 3 **/
-//
-//        Character[] alphabet3 = new Character[]{'ć','ą','ś','&'};
-//        String testText3 = "ąćąćąćąśśśćąćąćąćąćśśśćąćś";
-//        String testPattern3[] = new String[]{"&","&ś", "ąć", "ś","śś","ćąć"};
-//        for (String testPattern : testPattern3) {
-////            new FiniteAutomationMatcher(testPattern,testText3,alphabet3);
-//            new AlgorithmKnuthMorrisPratt(testPattern,testText3, Arrays.asList(alphabet3)).findPattern();
-//
-//            System.out.println("-----------------\n");
-//        }
+        /** Test patterns 2 **/
+
+        Character[] alphabet2 = new Character[]{'α','β','γ','δ'};
+        String testText2 = "αβαβγβαβαβαβαβγ";
+        String testPattern2[] = new String[]{"δ","γδ", "αβ", "αβαβ"};
+        for (String testPattern : testPattern2) {
+//            new FiniteAutomationMatcher(testPattern,testText2,alphabet2);
+            new AlgorithmKnuthMorrisPratt(testPattern,testText2, Arrays.asList(alphabet2)).findPattern();
+
+            System.out.println("-----------------\n");
+        }
 
         /** Test patterns 3 **/
 
-//        Character[] alphabet4 = new Character[]{'\\','|','/',' '};
-//        String testText4 = "\\|\\|\\/\\|/\\ \\\\\\ \\\\\\ \\/// //\\|\\|";
-//        String[] testPattern4 = new String[]{"|","||","\\ \\", "//","\\|\\","\\|\\|"};
-//        for (String testPattern : testPattern4) {
-//            new AlgorithmKnuthMorrisPratt(testPattern,testText4, Arrays.asList(alphabet4)).findPattern();
-////            new FiniteAutomationMatcher(testPattern,testText4,alphabet4);
-//            System.out.println("-----------------\n");
-//        }
+        Character[] alphabet3 = new Character[]{'ć','ą','ś','&'};
+        String testText3 = "ąćąćąćąśśśćąćąćąćąćśśśćąćś";
+        String testPattern3[] = new String[]{"&","&ś", "ąć", "ś","śś","ćąć"};
+        for (String testPattern : testPattern3) {
+//            new FiniteAutomationMatcher(testPattern,testText3,alphabet3);
+            new AlgorithmKnuthMorrisPratt(testPattern,testText3, Arrays.asList(alphabet3)).findPattern();
+
+            System.out.println("-----------------\n");
+        }
+
+        /** Test patterns 3 **/
+
+        Character[] alphabet4 = new Character[]{'\\','|','/',' '};
+        String testText4 = "\\|\\|\\/\\|/\\ \\\\\\ \\\\\\ \\/// //\\|\\|";
+        String[] testPattern4 = new String[]{"|","||","\\ \\", "//","\\|\\","\\|\\|"};
+        for (String testPattern : testPattern4) {
+            new AlgorithmKnuthMorrisPratt(testPattern,testText4, Arrays.asList(alphabet4)).findPattern();
+//            new FiniteAutomationMatcher(testPattern,testText4,alphabet4);
+            System.out.println("-----------------\n");
+        }
 
         /** Test patterns 4 **/
 
